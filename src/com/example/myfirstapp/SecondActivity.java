@@ -13,7 +13,7 @@ public class SecondActivity extends Activity {
 		setContentView(R.layout.activity_second);
 
 		Intent intent = getIntent();
-		String message = " you just hit the second activity, message = " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		String message = "changed in mac, you just hit the second activity, message = " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
 		TextView textView = new TextView(this);
 		textView.setTextSize(40);
