@@ -14,13 +14,19 @@ public class SecondActivity extends Activity {
 
 		/* this is a change */
 		Intent intent = getIntent();
-		String message = "changed in mac, you just hit the second activity, message = " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+		String message = "you typed: " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
+		/*
 		TextView textView = new TextView(this);
 		textView.setTextSize(40);
 		textView.setText(message);
 		
 		setContentView(textView);
+		*/
+		
+		/* edit the text in the CenterLabel textview */
+		TextView centerLabel = (TextView) findViewById(R.id.CenterLabel);
+		centerLabel.setText(message);
 	}
 
 }
