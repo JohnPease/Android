@@ -12,6 +12,7 @@ public class SecondActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
 
+		/* this is a change */
 		Intent intent = getIntent();
 		String message = "changed in mac, you just hit the second activity, message = " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
