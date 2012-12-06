@@ -12,7 +12,6 @@ public class SecondActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
 
-		/* this is a change */
 		Intent intent = getIntent();
 		String message = "you typed: " + intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
