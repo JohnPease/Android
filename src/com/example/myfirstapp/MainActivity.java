@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
     	EditText editText 	= (EditText) findViewById(R.id.edit_message);
     	String message 		= editText.getText().toString();
     	
-    	if (message.equalsIgnoreCase("go to second activity")) {
+    	if (message.toLowerCase().contains("second activity")) {
     		intent = new Intent(this, SecondActivity.class);
     	} else {
     		intent = new Intent(this, DisplayMessageActivity.class);
