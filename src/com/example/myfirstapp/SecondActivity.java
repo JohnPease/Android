@@ -3,6 +3,7 @@ package com.example.myfirstapp;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,11 +38,12 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		Spinner spin 			= (Spinner)findViewById(R.id.CenterSpinner);
 		String enteredArray[] 	= entered.split(" ");
 		List<String> words 		= new ArrayList<String>();
-
+		
 		/*
 		 * put all of the words entered into the array for the spinner
 		 * create the set of options for the spinner
 		 */
+		words.add("Select a word from this list");
 		for (int i = 0; i < enteredArray.length; i++) words.add(enteredArray[i]);
 		
 		ArrayAdapter<String> options = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, words);
@@ -54,11 +56,21 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		//Toast.makeText(this, "You selected \"" + chosen + "\" from the Spinner", Toast.LENGTH_SHORT);
 	}
 	
+	/*
+	 * this gets called when the activity is paused, or left
+	 */
+	protected void onPause(Bundle savedInstanceState) {
+		
+	}
+	
 	public void onItemSelected(AdapterView<?> parent, View view, 
             int pos, long id) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
-		Toast.makeText(this, "You selected \"" + parent.getItemAtPosition(pos) + "\" from the Spinner", Toast.LENGTH_SHORT);
+		String word = (String) parent.getItemAtPosition(pos);
+		if (!word.equalsIgnoreCase("select a word from this list")) {
+			Toast.makeText(this, "You selected \"" + parent.getItemAtPosition(pos) + "\" from the Spinner", Toast.LENGTH_LONG).show();
+		}
     }
 
     public void onNothingSelected(AdapterView<?> parent) {

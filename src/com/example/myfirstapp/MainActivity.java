@@ -16,6 +16,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    
+    protected void onPause(Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+    	setContentView(R.layout.activity_main);
+    	EditText editText = (EditText) findViewById(R.id.edit_message);
+    	
+    	editText.setText("Enter text here");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
