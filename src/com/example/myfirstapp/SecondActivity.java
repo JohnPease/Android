@@ -5,8 +5,13 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -54,6 +59,27 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		
 		//String chosen = String.valueOf(spin.getSelectedItem());
 		//Toast.makeText(this, "You selected \"" + chosen + "\" from the Spinner", Toast.LENGTH_SHORT);
+		
+		/*
+		 * show a notification of what the user chose
+		 */
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+		mBuilder.setSmallIcon(android.R.drawable.star_big_on);
+		mBuilder.setContentTitle("This is the content title");
+		mBuilder.setContentText("This is the content text");
+		
+		Intent resultIntent = new Intent(this, SecondActivity.class);
+		
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+		stackBuilder.addParentStack(this);
+		
+		stackBuilder.addNextIntent(resultIntent);
+		
+		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		NotificationManager mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		
+		mManager.notify(mId, mBuilder.build());
 	}
 	
 	/*
