@@ -15,6 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -129,7 +130,14 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 	}
 	
 	/*
+	 * this gets called when the save email address button is pressed
+	 */
+	public void SaveEmailAddress(View view) {
+	}
+	
+	/*
 	 * this gets called when the activity is paused, or left
+	 * for the notification code
 	 */
 	protected void onPause(Bundle savedInstanceState) {
 		

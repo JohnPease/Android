@@ -32,4 +32,27 @@
         android:onClick="SendRequest"
         android:text="@string/RequestButton" />
 
+    <EditText
+        android:id="@+id/EmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:hint="@string/EmailPrompt"
+        android:inputType="textEmailAddress"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/SaveEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/SaveEmail"
+        android:onClick="SaveEmailAddress" />
+
 </RelativeLayout>
