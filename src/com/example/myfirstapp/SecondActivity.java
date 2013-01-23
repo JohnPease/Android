@@ -110,7 +110,8 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		try {
 			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			Toast.makeText(this, e.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
 		}
 		
 		// get the http response
@@ -119,9 +120,11 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 			String responseString = response.toString();
 			
 		} catch (ClientProtocolException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			Toast.makeText(this, e.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			Toast.makeText(this, e.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
 		}
 	}
 	
