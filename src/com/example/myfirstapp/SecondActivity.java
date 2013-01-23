@@ -1,17 +1,22 @@
 package com.example.myfirstapp;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import android.app.Activity;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -62,7 +67,7 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		
 		/*
 		 * show a notification of what the user chose
-		 */
+		 *
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 		mBuilder.setSmallIcon(android.R.drawable.star_big_on);
 		mBuilder.setContentTitle("This is the content title");
@@ -78,8 +83,39 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 		
 		NotificationManager mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		
 		mManager.notify(mId, mBuilder.build());
+		
+		*/
+		
+		/*
+		 * http post example
+		 */
+		
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPost httpPost = new HttpPost("http://www.example.com/login");
+		
+		// add the post parameters to the HttpPost object
+		List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();
+		nameValuePair.add(new BasicNameValuePair("email", "user@gmail.com"));
+		nameValuePair.add(new BasicNameValuePair("password", "abcdefgh"));
+		
+		// encode the URL post parameters
+		try {
+			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		// get the http response
+		try {
+			HttpResponse response = httpClient.execute(httpPost);
+			String responseString = response.toString();
+			
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
