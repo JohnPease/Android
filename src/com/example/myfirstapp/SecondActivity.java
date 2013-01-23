@@ -87,6 +87,13 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 		
 		*/
 		
+	}
+	
+	public void sendRequest(View view) {
+		/*
+		 * this method gets called when the HTTP Request button is pressed
+		 */
+		
 		/*
 		 * http post example
 		 */
