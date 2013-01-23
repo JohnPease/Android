@@ -15,13 +15,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -133,6 +133,9 @@ public class SecondActivity extends Activity implements OnItemSelectedListener {
 	 * this gets called when the save email address button is pressed
 	 */
 	public void SaveEmailAddress(View view) {
+		EditText edit = (EditText)findViewById(R.id.EmailText);
+		String email = edit.getText().toString();		
+		Toast.makeText(this, email, Toast.LENGTH_LONG).show();
 	}
 	
 	/*

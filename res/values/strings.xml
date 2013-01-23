@@ -11,6 +11,6 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="RequestButton">Press to Send Request</string>
     <string name="EmailPrompt">Enter an email address here</string>
-    <string name="SaveEmail">Save Email</string>
+    <string name="SaveEmail">Submit</string>
 
 </resources>
